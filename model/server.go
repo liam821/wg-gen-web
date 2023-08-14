@@ -57,11 +57,11 @@ func (a Server) IsValid() []error {
 		errs = append(errs, fmt.Errorf("MTU %d is invalid", a.PersistentKeepalive))
 	}
 	// check if the address are valid
-	for _, dns := range a.Dns {
-		if !util.IsValidIp(dns) {
-			errs = append(errs, fmt.Errorf("dns %s is invalid", dns))
-		}
-	}
+	// for _, dns := range a.Dns {
+	//	if !util.IsValidIp(dns) {
+	//		errs = append(errs, fmt.Errorf("dns %s is invalid", dns))
+	//	}
+	// }
 	// check if the allowedIPs are valid
 	for _, allowedIP := range a.AllowedIPs {
 		if !util.IsValidCidr(allowedIP) {
